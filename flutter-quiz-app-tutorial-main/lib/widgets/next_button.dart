@@ -13,19 +13,22 @@ class RectangularButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
+      style: ButtonStyle(),
       onPressed: onPressed,
       child: SizedBox(
         height: 50,
         width: double.infinity,
         child: Card(
-          color: onPressed != null ? Colors.white24 : null,
+          
+          color: onPressed != null ? Colors.blue.shade800 : null,
           child: Center(
             child: Text(
               label,
               style: const TextStyle(
                 letterSpacing: 2,
                 fontSize: 25,
-                fontWeight: FontWeight.w400,
+                fontWeight: FontWeight.w800,
+               color: Colors.white
               ),
             ),
           ),

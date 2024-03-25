@@ -85,9 +85,11 @@ class _QuizScreenState extends State<QuizScreen> {
         title: Text("Time's Up"),
         actions: [
           ElevatedButton(
+            
             onPressed: () {
+              _goToNextQuestion();
               Navigator.of(context).pop(); // Close the dialog
-              _goToNextQuestion(); // Proceed to the next question
+               // Proceed to the next question
             },
             child: Text('Next'),
           ),
@@ -248,13 +250,15 @@ void _goToResultScreenAction() {
                       decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: selectedAnswerIndex == index
-                            ? Colors.blue.withOpacity(0.7)
+                            ? Colors.blue.shade800
                             : null,
                       ),
                       child: Text(
                         question.options[index],
                         style: TextStyle(
                           fontSize: 18,
+                          fontWeight: 
+                          FontWeight.w400,
                           color: selectedAnswerIndex == null
                               ? Colors.black
                               : selectedAnswerIndex == index

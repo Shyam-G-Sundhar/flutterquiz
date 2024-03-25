@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:quiz_app_tutorial/screens/first_screen.dart';
 
 import '/screens/quiz_screen.dart';
 
@@ -15,12 +16,19 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       themeMode: ThemeMode.dark,
       theme: ThemeData.light().copyWith(),
-      home: WillPopScope(
-        onWillPop: () async {
-          return await _showExitConfirmationDialog(context);
-        },
-        child: const QuizScreen(),
-      ),
+      home: QuizScreenWithExitConfirmation(),
+    );
+  }
+}
+
+class QuizScreenWithExitConfirmation extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return WillPopScope(
+      onWillPop: () async {
+        return await _showExitConfirmationDialog(context);
+      },
+      child: LoginPage(),
     );
   }
 

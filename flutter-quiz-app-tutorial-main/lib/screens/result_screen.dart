@@ -49,7 +49,7 @@ class ResultScreen extends StatelessWidget {
                       child: CircularProgressIndicator(
                         strokeWidth: 15,
                         value: score / questions.length,
-                        color: Colors.green,
+                        color: Colors.blue.shade800,
                         backgroundColor: Colors.grey.shade300,
                       ),
                     ),
@@ -74,20 +74,33 @@ class ResultScreen extends StatelessWidget {
             ),
             const SizedBox(height: 50),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.blue.shade800),
               onPressed: () {
                 Navigator.of(context).push(MaterialPageRoute(
                   builder: (_) => ViewAnswersScreen(questions: questions),
                 ));
               },
-              child: Text('View Answers'),
+              child: Text('View Answers',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.w800
+              ),),
             ),
+            SizedBox(height: 15,),
             ElevatedButton(
+              style: ElevatedButton.styleFrom(backgroundColor: Colors.blue.shade800),
               onPressed: () {
                 Navigator.of(context).pushReplacement(MaterialPageRoute(
                   builder: (_) => QuizScreen(),
                 ));
               },
-              child: Text('Go Back'),
+              child: Text('Go Back',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 20,
+                fontWeight: FontWeight.w800
+              ),),
             ),
           ],
         ),
